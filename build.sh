@@ -1,34 +1,28 @@
 # Python 3.5
-# |_ XZ
-# |  |_ lbzip2
-# |  |_ libiconv
-# |  |  |_ gperf
-# |  |_ gettext
-# |     |_ expat
-# |     |  |_ lbzip2   (installed before)
-# |     |_ libiconv    (installed before)
-# |     |_ ncurses
-# |_ zlib
-# |  |_ XZ             (see above)
-# |_ openssl
-# |  |_ zlib           (see above)
-# |_ bzip2
-# |_ gettext           (installed before)
-# |_ libedit
-# |  |_ ncurses        (installed before)
-# |_ ncurses           (installed before)
-# |_ sqlite3
-#    |_ libedit        (installed before)
-#    |_ ncurses        (installed before)
+# ├ XZ
+# │  ├ lbzip2
+# │  ├ libiconv
+# │  │ └ gperf
+# │  └ gettext
+# │    ├ expat
+# │    │ └ lbzip2    (installed before)
+# │    ├ libiconv    (installed before)
+# │    └ ncurses
+# ├ zlib
+# │ └ XZ             (see above)
+# ├ openssl
+# │ └ zlib           (see above)
+# ├ bzip2
+# ├ gettext          (installed before)
+# ├ libedit
+# │ └ ncurses        (installed before)
+# ├ ncurses          (installed before)
+# └ sqlite3
+#   ├ libedit        (installed before)
+#   └ ncurses        (installed before)
 
 
-rm -rf lbzip2*
-rm -rf gperf*
-rm -rf libiconv*
-rm -rf expat*
-rm -rf gettext*
-rm -rf ncurses*
-rm -rf xz*
+rm -rf lbzip2* gperf* libiconv* expat* gettext* ncurses* xz* zlib* openssl* bzip2* libedit* sqlite3*
 
 export INSTALLDIR=$HOME/Starbot.framework
 
@@ -54,3 +48,8 @@ downloadAndCompile expat-2.2.0 https://sydneyerickson.me/mirror/expat-2.2.0.tar.
 downloadAndCompile ncurses-6.0 https://ftp.gnu.org/gnu/ncurses/ncurses-6.0.tar.gz
 downloadAndCompile gettext-0.19.8.1 https://ftp.gnu.org/pub/gnu/gettext/gettext-0.19.8.1.tar.gz "--with-expat=$INSTALLDIR --with-libiconv=$INSTALLDIR --with-ncurses=$INSTALLDIR"
 downloadAndCompile xz-5.2.3 http://tukaani.org/xz/xz-5.2.3.tar.gz "--with-lbzip2=$INSTALLDIR --with-libiconv=$INSTALLDIR --with-gettext=$INSTALLDIR"
+downloadAndCompile zlib-1.2.11 http://zlib.net/zlib-1.2.11.tar.gz
+downloadAndCompile openssl-1.0.2k https://www.openssl.org/source/openssl-1.0.2k.tar.gz "--with-zlib=$INSTALLDIR"
+downloadAndCompile bzip2-1.0.6 http://bzip.org/1.0.6/bzip2-1.0.6.tar.gz
+downloadAndCompile libedit-20160903-3.1 http://thrysoee.dk/editline/libedit-20160903-3.1.tar.gz "--with-ncurses=$INSTALLDIR"
+downloadAndCompile sqlite-autoconf-3170000 http://www.sqlite.org/2017/sqlite-autoconf-3170000.tar.gz "--with-libedit=$INSTALLDIR --with-ncurses=$INSTALLDIR"

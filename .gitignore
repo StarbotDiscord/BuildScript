@@ -7,3 +7,8 @@ expat*
 gettext*
 ncurses*
 xz*
+zlib*
+openssl*
+bzip2*
+libedit*
+sqlite3*

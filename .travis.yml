@@ -1,0 +1,11 @@
+os:
+- osx
+
+before_script:
+- export HOME=$PWD/home
+
+script: ./build.sh
+
+branches:
+  only:
+  - master
