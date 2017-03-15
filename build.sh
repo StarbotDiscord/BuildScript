@@ -1,13 +1,25 @@
 # Python 3.5
 # |_ XZ
-#    |_ lbzip2
-#    |_ libiconv
-#    |  |_ gperf
-#    |_ gettext
-#       |_ expat
-#       |  |_ lbzip2 (installed before)
-#       |_ libiconv (installed before)
-#       |_ ncurses
+# |  |_ lbzip2
+# |  |_ libiconv
+# |  |  |_ gperf
+# |  |_ gettext
+# |     |_ expat
+# |     |  |_ lbzip2   (installed before)
+# |     |_ libiconv    (installed before)
+# |     |_ ncurses
+# |_ zlib
+# |  |_ XZ             (see above)
+# |_ openssl
+# |  |_ zlib           (see above)
+# |_ bzip2
+# |_ gettext           (installed before)
+# |_ libedit
+# |  |_ ncurses        (installed before)
+# |_ ncurses           (installed before)
+# |_ sqlite3
+#    |_ libedit        (installed before)
+#    |_ ncurses        (installed before)
 
 
 rm -rf lbzip2*
