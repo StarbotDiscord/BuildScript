@@ -49,7 +49,12 @@ downloadAndCompile ncurses-6.0 https://ftp.gnu.org/gnu/ncurses/ncurses-6.0.tar.g
 downloadAndCompile gettext-0.19.8.1 https://ftp.gnu.org/pub/gnu/gettext/gettext-0.19.8.1.tar.gz "--with-expat=$INSTALLDIR --with-libiconv=$INSTALLDIR --with-ncurses=$INSTALLDIR"
 downloadAndCompile xz-5.2.3 http://tukaani.org/xz/xz-5.2.3.tar.gz "--with-lbzip2=$INSTALLDIR --with-libiconv=$INSTALLDIR --with-gettext=$INSTALLDIR"
 downloadAndCompile zlib-1.2.11 http://zlib.net/zlib-1.2.11.tar.gz
-downloadAndCompile openssl-1.0.2k https://www.openssl.org/source/openssl-1.0.2k.tar.gz "$(uname)-x86_64-cc --with-zlib=$INSTALLDIR"
+unamestr=$(uname)
+if [[ "$unamestr" == 'Darwin' ]]; then
+   downloadAndCompile openssl-1.0.2k https://www.openssl.org/source/openssl-1.0.2k.tar.gz "$(uname)64-x86_64-cc --with-zlib=$INSTALLDIR"
+elif [[ "$unamestr" == 'Linux' ]]; then
+   downloadAndCompile openssl-1.0.2k https://www.openssl.org/source/openssl-1.0.2k.tar.gz "$(uname)-x86_64-cc --with-zlib=$INSTALLDIR"
+fi
 downloadAndCompile bzip2-1.0.6 http://bzip.org/1.0.6/bzip2-1.0.6.tar.gz
 downloadAndCompile libedit-20160903-3.1 http://thrysoee.dk/editline/libedit-20160903-3.1.tar.gz "--with-ncurses=$INSTALLDIR"
 downloadAndCompile sqlite-autoconf-3170000 http://www.sqlite.org/2017/sqlite-autoconf-3170000.tar.gz "--with-libedit=$INSTALLDIR --with-ncurses=$INSTALLDIR"
