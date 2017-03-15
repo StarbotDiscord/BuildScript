@@ -22,7 +22,7 @@
 #   └ ncurses        (installed before)
 
 
-rm -rf lbzip2* gperf* libiconv* expat* gettext* ncurses* xz* zlib* openssl* bzip2* libedit* sqlite3*
+rm -rf lbzip2* gperf* libiconv* expat* gettext* ncurses* xz* zlib* openssl* bzip2* libedit* sqlite* Python*
 
 export INSTALLDIR=$HOME/Starbot.framework
 
@@ -65,3 +65,7 @@ cd ..
 
 downloadAndCompile libedit-20160903-3.1 http://thrysoee.dk/editline/libedit-20160903-3.1.tar.gz "--with-ncurses=$INSTALLDIR"
 downloadAndCompile sqlite-autoconf-3170000 http://www.sqlite.org/2017/sqlite-autoconf-3170000.tar.gz "--with-libedit=$INSTALLDIR --with-ncurses=$INSTALLDIR"
+cp -r $INSTALLDIR/lib $HOME/lib
+downloadAndCompile Python-3.5.3 https://www.python.org/ftp/python/3.5.3/Python-3.5.3.tgz
+rm -rf $HOME/lib
+$INSTALLDIR/bin/pip3 install pluginbase psutil gitpython pyparsing
