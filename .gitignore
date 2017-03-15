@@ -11,4 +11,4 @@ zlib*
 openssl*
 bzip2*
 libedit*
-sqlite3*
+sqlite*
