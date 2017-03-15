@@ -55,6 +55,6 @@ if [[ "$unamestr" == 'Darwin' ]]; then
 elif [[ "$unamestr" == 'Linux' ]]; then
    downloadAndCompile openssl-1.0.2k https://www.openssl.org/source/openssl-1.0.2k.tar.gz "linux-x86_64-cc"
 fi
-downloadAndCompile bzip2-1.0.6 http://bzip.org/1.0.6/bzip2-1.0.6.tar.gz
+#downloadAndCompile bzip2-1.0.6 http://bzip.org/1.0.6/bzip2-1.0.6.tar.gz
 downloadAndCompile libedit-20160903-3.1 http://thrysoee.dk/editline/libedit-20160903-3.1.tar.gz "--with-ncurses=$INSTALLDIR"
 downloadAndCompile sqlite-autoconf-3170000 http://www.sqlite.org/2017/sqlite-autoconf-3170000.tar.gz "--with-libedit=$INSTALLDIR --with-ncurses=$INSTALLDIR"
