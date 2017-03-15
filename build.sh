@@ -51,9 +51,9 @@ downloadAndCompile xz-5.2.3 http://tukaani.org/xz/xz-5.2.3.tar.gz "--with-lbzip2
 downloadAndCompile zlib-1.2.11 http://zlib.net/zlib-1.2.11.tar.gz
 unamestr=$(uname)
 if [[ "$unamestr" == 'Darwin' ]]; then
-   downloadAndCompile openssl-1.0.2k https://www.openssl.org/source/openssl-1.0.2k.tar.gz "darwin64-x86_64-cc --with-zlib=$INSTALLDIR"
+   downloadAndCompile openssl-1.0.2k https://www.openssl.org/source/openssl-1.0.2k.tar.gz "darwin64-x86_64-cc"
 elif [[ "$unamestr" == 'Linux' ]]; then
-   downloadAndCompile openssl-1.0.2k https://www.openssl.org/source/openssl-1.0.2k.tar.gz "linux-x86_64-cc --with-zlib=$INSTALLDIR"
+   downloadAndCompile openssl-1.0.2k https://www.openssl.org/source/openssl-1.0.2k.tar.gz "linux-x86_64-cc"
 fi
 downloadAndCompile bzip2-1.0.6 http://bzip.org/1.0.6/bzip2-1.0.6.tar.gz
 downloadAndCompile libedit-20160903-3.1 http://thrysoee.dk/editline/libedit-20160903-3.1.tar.gz "--with-ncurses=$INSTALLDIR"
