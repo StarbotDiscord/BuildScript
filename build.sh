@@ -1,25 +1,45 @@
-# Python 3.5
-# ├ XZ
-# │  ├ lbzip2
-# │  ├ libiconv
-# │  │ └ gperf
-# │  └ gettext
-# │    ├ expat
-# │    │ └ lbzip2    (installed before)
-# │    ├ libiconv    (installed before)
-# │    └ ncurses
-# ├ zlib
-# │ └ XZ             (see above)
-# ├ openssl
-# │ └ zlib           (see above)
-# ├ bzip2
-# ├ gettext          (installed before)
-# ├ libedit
-# │ └ ncurses        (installed before)
-# ├ ncurses          (installed before)
-# └ sqlite3
-#   ├ libedit        (installed before)
-#   └ ncurses        (installed before)
+# Starbot
+# ├ Python 3.5
+# │ ├ XZ
+# │ │ ├ lbzip2
+# │ │ ├ libiconv
+# │ │ │ └ gperf
+# │ │ └ gettext
+# │ │   ├ expat
+# │ │   │ └ lbzip2     (installed before)
+# │ │   ├ libiconv     (installed before)
+# │ │   └ ncurses
+# │ ├ zlib
+# │ │ └ XZ             (installed before)
+# │ │   ├ lbzip2       (installed before)
+# │ │   ├ libiconv     (installed before)
+# │ │   │ └ gperf      (installed before)
+# │ │   └ gettext      (installed before)
+# │ │     ├ expat      (installed before)
+# │ │     │ └ lbzip2   (installed before)
+# │ │     ├ libiconv   (installed before)
+# │ │     └ ncurses    (installed before)
+# │ ├ openssl
+# │ │ └ zlib           (installed before)
+# │ │   └ XZ           (installed before)
+# │ ├ bzip2
+# │ ├ gettext          (installed before)
+# │ │ ├ expat          (installed before)
+# │ │ │ └ lbzip2       (installed before)
+# │ │ ├ libiconv       (installed before)
+# │ │ └ ncurses        (installed before)
+# │ ├ libedit
+# │ │ └ ncurses        (installed before)
+# │ ├ ncurses          (installed before)
+# │ └ sqlite3
+# │   ├ libedit        (installed before)
+# │   │ └ ncurses      (installed before)
+# │   └ ncurses        (installed before)
+# ├ libopus
+# │ └ pkgconfig
+# │   └ libiconv       (installed before)
+# │     └ gperf        (installed before)
+# └ Postresql
 
 
 rm -rf lbzip2* gperf* libiconv* expat* gettext* ncurses* xz* zlib* openssl* bzip2* libedit* sqlite* Python*
