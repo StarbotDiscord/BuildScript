@@ -13,3 +13,5 @@ bzip2*
 libedit*
 sqlite*
 python*
+pkg-config*
+opus*

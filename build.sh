@@ -42,7 +42,7 @@
 # └ Postresql
 
 
-rm -rf lbzip2* gperf* libiconv* expat* gettext* ncurses* xz* zlib* openssl* bzip2* libedit* sqlite* Python*
+rm -rf lbzip2* gperf* libiconv* expat* gettext* ncurses* xz* zlib* openssl* bzip2* libedit* sqlite* Python* pkg-config* opus*
 
 export INSTALLDIR=$HOME/Starbot.framework
 export PATH=$INSTALLDIR/bin:$PATH
