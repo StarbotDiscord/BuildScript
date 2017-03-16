@@ -107,5 +107,5 @@ $INSTALLDIR/bin/pip3 install pluginbase psutil gitpython pyparsing
 # | |____| | |_) | |__| | |    | |__| |____) |
 # |______|_|_.__/ \____/|_|     \____/|_____/ 
 
-downloadAndCompile pkg-config-0.29.1 https://pkg-config.freedesktop.org/releases/pkg-config-0.29.1.tar.gz "--with-libiconv=$INSTALLDIR --with-internal-glib"
+downloadAndCompile pkg-config-0.29.1 https://pkg-config.freedesktop.org/releases/pkg-config-0.29.1.tar.gz "--with-iconv=$INSTALLDIR --with-internal-glib"
 downloadAndCompile opus-1.1.4 http://downloads.xiph.org/releases/opus/opus-1.1.4.tar.gz
