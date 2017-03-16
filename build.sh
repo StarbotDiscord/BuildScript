@@ -1,30 +1,51 @@
-# Python 3.5
-# ├ XZ
-# │  ├ lbzip2
-# │  ├ libiconv
-# │  │ └ gperf
-# │  └ gettext
-# │    ├ expat
-# │    │ └ lbzip2    (installed before)
-# │    ├ libiconv    (installed before)
-# │    └ ncurses
-# ├ zlib
-# │ └ XZ             (see above)
-# ├ openssl
-# │ └ zlib           (see above)
-# ├ bzip2
-# ├ gettext          (installed before)
-# ├ libedit
-# │ └ ncurses        (installed before)
-# ├ ncurses          (installed before)
-# └ sqlite3
-#   ├ libedit        (installed before)
-#   └ ncurses        (installed before)
+# Starbot
+# ├ Python 3.5
+# │ ├ XZ
+# │ │ ├ lbzip2
+# │ │ ├ libiconv
+# │ │ │ └ gperf
+# │ │ └ gettext
+# │ │   ├ expat
+# │ │   │ └ lbzip2     (installed before)
+# │ │   ├ libiconv     (installed before)
+# │ │   └ ncurses
+# │ ├ zlib
+# │ │ └ XZ             (installed before)
+# │ │   ├ lbzip2       (installed before)
+# │ │   ├ libiconv     (installed before)
+# │ │   │ └ gperf      (installed before)
+# │ │   └ gettext      (installed before)
+# │ │     ├ expat      (installed before)
+# │ │     │ └ lbzip2   (installed before)
+# │ │     ├ libiconv   (installed before)
+# │ │     └ ncurses    (installed before)
+# │ ├ openssl
+# │ │ └ zlib           (installed before)
+# │ │   └ XZ           (installed before)
+# │ ├ bzip2
+# │ ├ gettext          (installed before)
+# │ │ ├ expat          (installed before)
+# │ │ │ └ lbzip2       (installed before)
+# │ │ ├ libiconv       (installed before)
+# │ │ └ ncurses        (installed before)
+# │ ├ libedit
+# │ │ └ ncurses        (installed before)
+# │ ├ ncurses          (installed before)
+# │ └ sqlite3
+# │   ├ libedit        (installed before)
+# │   │ └ ncurses      (installed before)
+# │   └ ncurses        (installed before)
+# ├ libopus
+# │ └ pkgconfig
+# │   └ libiconv       (installed before)
+# │     └ gperf        (installed before)
+# └ Postresql
 
 
 rm -rf lbzip2* gperf* libiconv* expat* gettext* ncurses* xz* zlib* openssl* bzip2* libedit* sqlite* Python*
 
 export INSTALLDIR=$HOME/Starbot.framework
+export PATH=$INSTALLDIR/bin:$PATH
 
 set -e
 
@@ -40,6 +61,15 @@ function downloadAndCompile {
     make install
     cd ..
 }
+
+#  _____       _   _                   ____   _____ 
+# |  __ \     | | | |                 |___ \ | ____|
+# | |__) _   _| |_| |__   ___  _ __     __) || |__  
+# |  ___| | | | __| '_ \ / _ \| '_ \   |__ < |___ \ 
+# | |   | |_| | |_| | | | (_) | | | |  ___) _ ___) |
+# |_|    \__, |\__|_| |_|\___/|_| |_| |____(_|____/ 
+#         __/ |                                     
+#        |___/                                      
 
 downloadAndCompile lbzip2-2.5 http://archive.lbzip2.org/lbzip2-2.5.tar.gz
 downloadAndCompile gperf-3.1 http://ftp.gnu.org/pub/gnu/gperf/gperf-3.1.tar.gz
@@ -69,3 +99,13 @@ cp -r $INSTALLDIR/lib $HOME/lib
 downloadAndCompile Python-3.5.3 https://www.python.org/ftp/python/3.5.3/Python-3.5.3.tgz
 rm -rf $HOME/lib
 $INSTALLDIR/bin/pip3 install pluginbase psutil gitpython pyparsing
+
+#  _      _ _      ____  _____  _    _  _____ 
+# | |    (_| |    / __ \|  __ \| |  | |/ ____|
+# | |     _| |__ | |  | | |__) | |  | | (___  
+# | |    | | '_ \| |  | |  ___/| |  | |\___ \ 
+# | |____| | |_) | |__| | |    | |__| |____) |
+# |______|_|_.__/ \____/|_|     \____/|_____/ 
+
+downloadAndCompile pkg-config-0.29.1 https://pkg-config.freedesktop.org/releases/pkg-config-0.29.1.tar.gz "--with-iconv=$INSTALLDIR --with-internal-glib"
+downloadAndCompile opus-1.1.4 http://downloads.xiph.org/releases/opus/opus-1.1.4.tar.gz
