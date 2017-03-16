@@ -61,6 +61,15 @@ function downloadAndCompile {
     cd ..
 }
 
+#  _____       _   _                   ____   _____ 
+# |  __ \     | | | |                 |___ \ | ____|
+# | |__) _   _| |_| |__   ___  _ __     __) || |__  
+# |  ___| | | | __| '_ \ / _ \| '_ \   |__ < |___ \ 
+# | |   | |_| | |_| | | | (_) | | | |  ___) _ ___) |
+# |_|    \__, |\__|_| |_|\___/|_| |_| |____(_|____/ 
+#         __/ |                                     
+#        |___/                                      
+
 downloadAndCompile lbzip2-2.5 http://archive.lbzip2.org/lbzip2-2.5.tar.gz
 downloadAndCompile gperf-3.1 http://ftp.gnu.org/pub/gnu/gperf/gperf-3.1.tar.gz
 downloadAndCompile libiconv-1.15 https://ftp.gnu.org/pub/gnu/libiconv/libiconv-1.15.tar.gz "--with-gperf=$INSTALLDIR"
@@ -89,3 +98,12 @@ cp -r $INSTALLDIR/lib $HOME/lib
 downloadAndCompile Python-3.5.3 https://www.python.org/ftp/python/3.5.3/Python-3.5.3.tgz
 rm -rf $HOME/lib
 $INSTALLDIR/bin/pip3 install pluginbase psutil gitpython pyparsing
+
+#  _      _ _      ____  _____  _    _  _____ 
+# | |    (_| |    / __ \|  __ \| |  | |/ ____|
+# | |     _| |__ | |  | | |__) | |  | | (___  
+# | |    | | '_ \| |  | |  ___/| |  | |\___ \ 
+# | |____| | |_) | |__| | |    | |__| |____) |
+# |______|_|_.__/ \____/|_|     \____/|_____/ 
+                                             
+                                             
