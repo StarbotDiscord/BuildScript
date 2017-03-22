@@ -46,3 +46,5 @@ def main():
 if __name__ == '__main__':
     main()
 EOF
+
+curl https://letsencrypt.org/certs/lets-encrypt-x3-cross-signed.pem > $HOME/Starbot.framework/ssl/certs/letsencrypt.pem
