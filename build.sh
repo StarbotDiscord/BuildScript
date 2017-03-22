@@ -136,7 +136,7 @@ cd ..
 downloadAndCompile libedit-20160903-3.1 http://thrysoee.dk/editline/libedit-20160903-3.1.tar.gz "--with-ncurses=$INSTALLDIR"
 downloadAndCompile sqlite-autoconf-3170000 http://www.sqlite.org/2017/sqlite-autoconf-3170000.tar.gz "--with-libedit=$INSTALLDIR --with-ncurses=$INSTALLDIR"
 cp -r $INSTALLDIR/lib $HOME/lib
-downloadAndCompile Python-3.5.3 https://www.python.org/ftp/python/3.6.1/Python-3.6.1.tgz
+downloadAndCompile Python-3.6.1 https://www.python.org/ftp/python/3.6.1/Python-3.6.1.tgz
 rm -rf $HOME/lib
 
 if [[ "$unamestr" == 'Darwin' ]]; then
