@@ -114,7 +114,7 @@ function downloadAndCompile {
 downloadAndCompile lbzip2-2.5 http://archive.lbzip2.org/lbzip2-2.5.tar.gz
 downloadAndCompile gperf-3.1 http://ftp.gnu.org/pub/gnu/gperf/gperf-3.1.tar.gz
 downloadAndCompile libiconv-1.15 https://ftp.gnu.org/pub/gnu/libiconv/libiconv-1.15.tar.gz "--with-gperf=$INSTALLDIR"
-downloadAndCompile expat-2.2.0 https://sydneyerickson.me/mirror/expat-2.2.0.tar.bz2 "--with-lbzip2=$INSTALLDIR"
+downloadAndCompile expat-2.2.0 http://starbutterfly.sydneyerickson.me/expat-2.2.0.tar.bz2 "--with-lbzip2=$INSTALLDIR"
 downloadAndCompile ncurses-6.0 https://ftp.gnu.org/gnu/ncurses/ncurses-6.0.tar.gz
 downloadAndCompile gettext-0.19.8.1 https://ftp.gnu.org/pub/gnu/gettext/gettext-0.19.8.1.tar.gz "--with-expat=$INSTALLDIR --with-libiconv=$INSTALLDIR --with-ncurses=$INSTALLDIR"
 downloadAndCompile xz-5.2.3 http://tukaani.org/xz/xz-5.2.3.tar.gz "--with-lbzip2=$INSTALLDIR --with-libiconv=$INSTALLDIR --with-gettext=$INSTALLDIR"
@@ -138,7 +138,7 @@ downloadAndCompile sqlite-autoconf-3170000 http://www.sqlite.org/2017/sqlite-aut
 cp -r $INSTALLDIR/lib $HOME/lib
 downloadAndCompile Python-3.5.3 https://www.python.org/ftp/python/3.5.3/Python-3.5.3.tgz
 rm -rf $HOME/lib
-$INSTALLDIR/bin/pip3 install pluginbase psutil gitpython pyparsing
+$INSTALLDIR/bin/pip3 install discord.py requests pluginbase psutil gitpython pyparsing
 
 #  _      _ _      ____  _____  _    _  _____ 
 # | |    (_| |    / __ \|  __ \| |  | |/ ____|
