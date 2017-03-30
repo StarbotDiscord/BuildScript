@@ -1,3 +1,4 @@
+#!/bin/bash
 # Starbot
 # ├ Python 3.5
 # │ ├ XZ
