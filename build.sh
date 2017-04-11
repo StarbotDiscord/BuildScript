@@ -122,9 +122,21 @@ downloadAndCompile xz-5.2.3 http://tukaani.org/xz/xz-5.2.3.tar.gz "--with-lbzip2
 downloadAndCompile zlib-1.2.11 http://zlib.net/zlib-1.2.11.tar.gz
 unamestr=$(uname)
 if [[ "$unamestr" == 'Darwin' ]]; then
-   downloadAndCompile openssl-1.0.2k https://www.openssl.org/source/openssl-1.0.2k.tar.gz "darwin64-x86_64-cc"
+   curl -k openssl-1.0.2k https://www.openssl.org/source/openssl-1.0.2k.tar.gz > openssl-1.0.2k.tar.gz
+   tar xf openssl-1.0.2k.tar.gz
+   cd openssl-1.0.2k
+   ./Configure --prefix=$INSTALLDIR darwin64-x86_64-cc
+   make $MAKEARGS
+   make install
+   cd ..
 elif [[ "$unamestr" == 'Linux' ]]; then
-   downloadAndCompile openssl-1.0.2k https://www.openssl.org/source/openssl-1.0.2k.tar.gz "linux-x86_64-cc"
+   curl -k openssl-1.0.2k https://www.openssl.org/source/openssl-1.0.2k.tar.gz > openssl-1.0.2k.tar.gz
+   tar xf openssl-1.0.2k.tar.gz
+   cd openssl-1.0.2k
+   ./Configure --prefix=$INSTALLDIR linux-x86_64-cc
+   make $MAKEARGS
+   make install
+   cd ..
 fi
 
 curl http://bzip.org/1.0.6/bzip2-1.0.6.tar.gz > bzip2-1.0.6.tar.gz
