@@ -133,7 +133,7 @@ elif [[ "$unamestr" == 'Linux' ]]; then
    curl -k openssl-1.0.2k https://www.openssl.org/source/openssl-1.0.2k.tar.gz > openssl-1.0.2k.tar.gz
    tar xf openssl-1.0.2k.tar.gz
    cd openssl-1.0.2k
-   ./Configure linux-aarch64 --prefix=$INSTALLDIR 
+   ./Configure linux-x86_64-clang --prefix=$INSTALLDIR 
    make $MAKEARGS
    make install
    cd ..
