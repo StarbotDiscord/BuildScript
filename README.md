@@ -4,7 +4,7 @@
 This is a script for creating a runtime environment for Starbot. Probably not useful if you
 just want to tinker with the bot, this is more useful for production where quick deployments
 are useful. You can also use prebuilt copies of this environment if you are too lazy to
-setup all the Starbot dependancies.
+setup all the Starbot dependencies.
 
 ## How do I run it?
 
