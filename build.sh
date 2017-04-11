@@ -125,7 +125,7 @@ if [[ "$unamestr" == 'Darwin' ]]; then
    curl -k openssl-1.0.2k https://www.openssl.org/source/openssl-1.0.2k.tar.gz > openssl-1.0.2k.tar.gz
    tar xf openssl-1.0.2k.tar.gz
    cd openssl-1.0.2k
-   ./Configure --prefix=$INSTALLDIR darwin64-x86_64-cc
+   ./Configure darwin64-x86_64-cc --prefix=$INSTALLDIR 
    make $MAKEARGS
    make install
    cd ..
@@ -133,7 +133,7 @@ elif [[ "$unamestr" == 'Linux' ]]; then
    curl -k openssl-1.0.2k https://www.openssl.org/source/openssl-1.0.2k.tar.gz > openssl-1.0.2k.tar.gz
    tar xf openssl-1.0.2k.tar.gz
    cd openssl-1.0.2k
-   ./Configure --prefix=$INSTALLDIR linux-x86_64-cc
+   ./Configure linux-x86_64-cc --prefix=$INSTALLDIR 
    make $MAKEARGS
    make install
    cd ..
