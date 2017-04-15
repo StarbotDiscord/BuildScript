@@ -171,7 +171,7 @@ if [[ "$unamestr" == 'Darwin' ]]; then
     ./updatessl.sh
 fi
 
-$INSTALLDIR/bin/pip3 install discord.py pluginbase psutil gitpython pyparsing pyspeedtest tqdm
+$INSTALLDIR/bin/pip3 install discord.py pluginbase psutil pyparsing pyspeedtest tqdm
 
 #  _      _ _      ____  _____  _    _  _____ 
 # | |    (_| |    / __ \|  __ \| |  | |/ ____|
