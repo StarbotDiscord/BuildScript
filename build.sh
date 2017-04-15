@@ -126,17 +126,32 @@ if [[ "$unamestr" == 'Darwin' ]]; then
    tar xf openssl-1.0.2k.tar.gz
    cd openssl-1.0.2k
    ./Configure darwin64-x86_64-cc --prefix=$INSTALLDIR 
+   make depend
    make $MAKEARGS
    make install
    cd ..
 elif [[ "$unamestr" == 'Linux' ]]; then
+
+if [[ "$CC" == 'clang' ]]; then
    curl -k openssl-1.0.2k https://www.openssl.org/source/openssl-1.0.2k.tar.gz > openssl-1.0.2k.tar.gz
    tar xf openssl-1.0.2k.tar.gz
    cd openssl-1.0.2k
-   ./Configure linux-x86_64-clang --prefix=$INSTALLDIR 
+   ./Configure linux-x86_64-clang --prefix=$INSTALLDIR -fPIC no-gost no-shared no-zlib
+   make depend
    make $MAKEARGS
    make install
    cd ..
+else
+   curl -k openssl-1.0.2k https://www.openssl.org/source/openssl-1.0.2k.tar.gz > openssl-1.0.2k.tar.gz
+   tar xf openssl-1.0.2k.tar.gz
+   cd openssl-1.0.2k
+   ./Configure linux-generic64 --prefix=$INSTALLDIR -fPIC no-gost no-shared no-zlib
+   make depend
+   make $MAKEARGS
+   make install
+   cd ..
+fi
+   
 fi
 
 curl http://bzip.org/1.0.6/bzip2-1.0.6.tar.gz > bzip2-1.0.6.tar.gz
