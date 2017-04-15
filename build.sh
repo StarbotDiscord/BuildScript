@@ -141,7 +141,7 @@ if [[ "$CC" == 'clang' ]]; then
    make $MAKEARGS
    make install
    cd ..
-else; then
+else
    curl -k openssl-1.0.2k https://www.openssl.org/source/openssl-1.0.2k.tar.gz > openssl-1.0.2k.tar.gz
    tar xf openssl-1.0.2k.tar.gz
    cd openssl-1.0.2k
