@@ -95,7 +95,7 @@ set -e
 # $3 - Additional config args
 function downloadAndCompile {
     curl $2 > $1.tar.gz
-    tar xf $1.tar.gz
+    tar -xzf $1.tar.gz
     cd $1
     ./configure --prefix=$INSTALLDIR $3
     make $MAKEARGS
@@ -151,7 +151,16 @@ else
    make install
    cd ..
 fi
-   
+  
+   curl -k openssl-1.0.2k https://www.openssl.org/source/openssl-1.0.2k.tar.gz > openssl-1.0.2k.tar.gz
+   tar xf openssl-1.0.2k.tar.gz
+   cd openssl-1.0.2k
+   ./config --prefix=$INSTALLDIR -fPIC no-gost no-shared no-zlib
+   make depend
+   make $MAKEARGS
+   make install
+   cd ..
+  
 fi
 
 curl http://bzip.org/1.0.6/bzip2-1.0.6.tar.gz > bzip2-1.0.6.tar.gz
