@@ -6,12 +6,5 @@ just want to tinker with the bot, this is more useful for production where quick
 are useful. You can also use prebuilt copies of this environment if you are too lazy to
 setup all the Starbot dependencies.
 
-## How do I run it?
-
-`./build.sh` will run a build with 1 thread and place the output in your home directory.
-
-`MAKEARGS=-j4 ./build.sh` will run a build with 4 threads and place the output in your home directory.
-
-`HOME=/opt` will run a build with 1 thread and place the output in `/opt`
-
-You can use any mix of these variables.
+## What platforms are supported?
+Officially, 64bit macOS 10.12.X and Ubuntu are supported, but you'll find build scripts for other platforms in here too. Just don't expect them to work perfectly.
