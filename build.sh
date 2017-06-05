@@ -122,9 +122,9 @@ downloadAndCompile xz-5.2.3 https://tukaani.org/xz/xz-5.2.3.tar.gz "--with-lbzip
 downloadAndCompile zlib-1.2.11 http://zlib.net/zlib-1.2.11.tar.gz
 unamestr=$(uname)
 
-curl -k openssl-1.0.2k https://www.openssl.org/source/openssl-1.0.2l.tar.gz > openssl-1.0.2k.tar.gz
-tar xf openssl-1.0.2k.tar.gz
-cd openssl-1.0.2k
+curl -k openssl-1.0.2l https://www.openssl.org/source/openssl-1.0.2l.tar.gz > openssl-1.0.2k.tar.gz
+tar xf openssl-1.0.2l.tar.gz
+cd openssl-1.0.2l
 if [[ "$unamestr" == 'Darwin' ]]; then
    ./Configure darwin64-x86_64-cc --prefix=$INSTALLDIR 
 elif [[ "$unamestr" == 'Linux' ]]; then
