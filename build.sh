@@ -122,7 +122,7 @@ downloadAndCompile xz-5.2.3 https://tukaani.org/xz/xz-5.2.3.tar.gz "--with-lbzip
 downloadAndCompile zlib-1.2.11 http://zlib.net/zlib-1.2.11.tar.gz
 unamestr=$(uname)
 if [[ "$unamestr" == 'Darwin' ]]; then
-   curl -k openssl-1.0.2k https://www.openssl.org/source/openssl-1.0.2k.tar.gz > openssl-1.0.2k.tar.gz
+   curl -k openssl-1.0.2k https://www.openssl.org/source/openssl-1.0.2l.tar.gz > openssl-1.0.2k.tar.gz
    tar xf openssl-1.0.2k.tar.gz
    cd openssl-1.0.2k
    ./Configure darwin64-x86_64-cc --prefix=$INSTALLDIR 
@@ -133,7 +133,7 @@ if [[ "$unamestr" == 'Darwin' ]]; then
 elif [[ "$unamestr" == 'Linux' ]]; then
 
 if [[ "$CC" == 'clang' ]]; then
-   curl -k openssl-1.0.2k https://www.openssl.org/source/openssl-1.0.2k.tar.gz > openssl-1.0.2k.tar.gz
+   curl -k openssl-1.0.2k https://www.openssl.org/source/openssl-1.0.2l.tar.gz > openssl-1.0.2k.tar.gz
    tar xf openssl-1.0.2k.tar.gz
    cd openssl-1.0.2k
    ./Configure linux-x86_64-clang --prefix=$INSTALLDIR -fPIC no-gost no-shared no-zlib
@@ -142,7 +142,7 @@ if [[ "$CC" == 'clang' ]]; then
    make install
    cd ..
 else
-   curl -k openssl-1.0.2k https://www.openssl.org/source/openssl-1.0.2k.tar.gz > openssl-1.0.2k.tar.gz
+   curl -k openssl-1.0.2k https://www.openssl.org/source/openssl-1.0.2l.tar.gz > openssl-1.0.2k.tar.gz
    tar xf openssl-1.0.2k.tar.gz
    cd openssl-1.0.2k
    ./Configure linux-generic64 --prefix=$INSTALLDIR -fPIC no-gost no-shared no-zlib
@@ -152,7 +152,7 @@ else
    cd ..
 fi
   
-   curl -k openssl-1.0.2k https://www.openssl.org/source/openssl-1.0.2k.tar.gz > openssl-1.0.2k.tar.gz
+   curl -k openssl-1.0.2k https://www.openssl.org/source/openssl-1.0.2l.tar.gz > openssl-1.0.2k.tar.gz
    tar xf openssl-1.0.2k.tar.gz
    cd openssl-1.0.2k
    ./config --prefix=$INSTALLDIR -fPIC no-gost no-shared no-zlib
@@ -170,8 +170,8 @@ make $MAKEARGS
 make install PREFIX=$INSTALLDIR
 cd ..
 
-downloadAndCompile libedit-20160903-3.1 http://thrysoee.dk/editline/libedit-20160903-3.1.tar.gz "--with-ncurses=$INSTALLDIR"
-downloadAndCompile sqlite-autoconf-3170000 http://www.sqlite.org/2017/sqlite-autoconf-3170000.tar.gz "--with-libedit=$INSTALLDIR --with-ncurses=$INSTALLDIR"
+downloadAndCompile libedit-20170329-3.1 http://thrysoee.dk/editline/libedit-20170329-3.1.tar.gz "--with-ncurses=$INSTALLDIR"
+downloadAndCompile sqlite-autoconf-3190200 http://www.sqlite.org/2017/sqlite-autoconf-3190200.tar.gz "--with-libedit=$INSTALLDIR --with-ncurses=$INSTALLDIR"
 cp -r $INSTALLDIR/lib $HOME/lib
 downloadAndCompile Python-3.6.1 https://www.python.org/ftp/python/3.6.1/Python-3.6.1.tgz
 rm -rf $HOME/lib
@@ -189,5 +189,5 @@ $INSTALLDIR/bin/pip3 install discord.py pluginbase psutil pyparsing pyspeedtest 
 # | |____| | |_) | |__| | |    | |__| |____) |
 # |______|_|_.__/ \____/|_|     \____/|_____/ 
 
-downloadAndCompile pkg-config-0.29.1 https://pkg-config.freedesktop.org/releases/pkg-config-0.29.1.tar.gz "--with-iconv=$INSTALLDIR --with-internal-glib"
+downloadAndCompile pkg-config-0.29.1 https://pkg-config.freedesktop.org/releases/pkg-config-0.29.2.tar.gz "--with-iconv=$INSTALLDIR --with-internal-glib"
 downloadAndCompile opus-1.1.4 http://downloads.xiph.org/releases/opus/opus-1.1.4.tar.gz
