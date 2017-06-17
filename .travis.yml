@@ -12,7 +12,7 @@ compiler:
 before_script:
 - export HOME=$PWD/home
 
-script: MAKEARGS=-j2 ./build.sh
+script: ./build.sh
 
 branches:
   only:
