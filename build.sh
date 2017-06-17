@@ -168,4 +168,4 @@ $INSTALLDIR/bin/pip3 install discord.py pluginbase psutil pyparsing pyspeedtest 
 # |______|_|_.__/ \____/|_|     \____/|_____/ 
 
 downloadAndCompile pkg-config-0.29.2 https://pkg-config.freedesktop.org/releases/pkg-config-0.29.2.tar.gz "--with-iconv=$INSTALLDIR --with-internal-glib"
-downloadAndCompile opus-1.1.5 http://downloads.xiph.org/releases/opus/opus-1.1.5.tar.gz
+downloadAndCompile opus-1.1.4 http://downloads.xiph.org/releases/opus/opus-1.1.4.tar.gz
