@@ -151,7 +151,7 @@ cd ..
 downloadAndCompile libedit-20170329-3.1 http://thrysoee.dk/editline/libedit-20170329-3.1.tar.gz "--with-ncurses=$INSTALLDIR"
 downloadAndCompile sqlite-autoconf-3190300 http://www.sqlite.org/2017/sqlite-autoconf-3190300.tar.gz "--with-libedit=$INSTALLDIR --with-ncurses=$INSTALLDIR"
 cp -r $INSTALLDIR/lib $HOME/lib
-downloadAndCompile Python-3.6.1 https://www.python.org/ftp/python/3.6.1/Python-3.6.1.tgz
+downloadAndCompile Python-3.6.2 https://www.python.org/ftp/python/3.6.2/Python-3.6.2.tgz
 rm -rf $HOME/lib
 
 if [[ "$unamestr" == 'Darwin' ]]; then
@@ -168,4 +168,4 @@ $INSTALLDIR/bin/pip3 install discord.py pluginbase psutil pyparsing pyspeedtest 
 # |______|_|_.__/ \____/|_|     \____/|_____/ 
 
 downloadAndCompile pkg-config-0.29.2 https://pkg-config.freedesktop.org/releases/pkg-config-0.29.2.tar.gz "--with-iconv=$INSTALLDIR --with-internal-glib"
-downloadAndCompile opus-1.1.4 http://downloads.xiph.org/releases/opus/opus-1.1.4.tar.gz
+downloadAndCompile opus-1.1.4 http://downloads.xiph.org/releases/opus/opus-1.2.tar.gz
