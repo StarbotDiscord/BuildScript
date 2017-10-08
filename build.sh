@@ -159,13 +159,3 @@ if [[ "$unamestr" == 'Darwin' ]]; then
 fi
 
 $INSTALLDIR/bin/pip3 install discord.py pluginbase psutil pyparsing pyspeedtest tqdm
-
-#  _      _ _      ____  _____  _    _  _____ 
-# | |    (_| |    / __ \|  __ \| |  | |/ ____|
-# | |     _| |__ | |  | | |__) | |  | | (___  
-# | |    | | '_ \| |  | |  ___/| |  | |\___ \ 
-# | |____| | |_) | |__| | |    | |__| |____) |
-# |______|_|_.__/ \____/|_|     \____/|_____/ 
-
-downloadAndCompile pkg-config-0.29.2 https://pkg-config.freedesktop.org/releases/pkg-config-0.29.2.tar.gz "--with-iconv=$INSTALLDIR --with-internal-glib"
-downloadAndCompile opus-1.1.4 http://downloads.xiph.org/releases/opus/opus-1.2.tar.gz
