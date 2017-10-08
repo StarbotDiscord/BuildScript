@@ -1,87 +1,4 @@
 #!/bin/bash
-# Starbot
-# ├ Python 3.5
-# │ ├ XZ
-# │ │ ├ lbzip2
-# │ │ ├ libiconv
-# │ │ │ └ gperf
-# │ │ └ gettext
-# │ │   ├ expat
-# │ │   │ └ lbzip2           (installed before)
-# │ │   ├ libiconv           (installed before)
-# │ │   └ ncurses
-# │ ├ zlib
-# │ │ └ XZ                   (installed before)
-# │ │   ├ lbzip2             (installed before)
-# │ │   ├ libiconv           (installed before)
-# │ │   │ └ gperf            (installed before)
-# │ │   └ gettext            (installed before)
-# │ │     ├ expat            (installed before)
-# │ │     │ └ lbzip2         (installed before)
-# │ │     ├ libiconv         (installed before)
-# │ │     └ ncurses          (installed before)
-# │ ├ openssl
-# │ │ └ zlib                 (installed before)
-# │ │   └ XZ                 (installed before)
-# │ ├ bzip2
-# │ ├ gettext                (installed before)
-# │ │ ├ expat                (installed before)
-# │ │ │ └ lbzip2             (installed before)
-# │ │ ├ libiconv             (installed before)
-# │ │ └ ncurses              (installed before)
-# │ ├ libedit
-# │ │ └ ncurses              (installed before)
-# │ ├ ncurses                (installed before)
-# │ └ sqlite3
-# │   ├ libedit              (installed before)
-# │   │ └ ncurses            (installed before)
-# │   └ ncurses              (installed before)
-# ├ libopus
-# │ └ pkgconfig
-# │   └ libiconv             (installed before)
-# │     └ gperf              (installed before)
-# └ PostreSQL 9.6
-#   ├ lbzip2                 (installed before)
-#   ├ openssl                (installed before)
-#   │ └ zlib                 (installed before)
-#   │   └ XZ                 (installed before)
-#   ├ bison
-#   │ ├ perl 5
-#   │ │ ├ lbzip2             (installed before)
-#   │ │ └ gdbm
-#   │ │   ├ gettext          (installed before)
-#   │ │   │ ├ expat          (installed before)
-#   │ │   │ │ └ lbzip2       (installed before)
-#   │ │   │ ├ libiconv       (installed before)
-#   │ │   │ └ ncurses        (installed before)
-#   │ │   └ gettext          (installed before)
-#   │ │     └ ncurses        (installed before)
-#   │ ├ gettext              (installed before)
-#   │ ├ XZ                   (installed before)
-#   │ │ ├ lbzip2             (installed before)
-#   │ │ ├ libiconv           (installed before)
-#   │ │ │ └ gperf            (installed before)
-#   │ │ └ gettext            (installed before)
-#   │ │   ├ expat            (installed before)
-#   │ │   │ └ lbzip2         (installed before)
-#   │ │   ├ libiconv         (installed before)
-#   │ │   └ ncurses          (installed before)
-#   │ └ m4
-#   │   └ lbzip2             (installed before)
-#   ├ libxml2
-#   │ ├ libiconv             (installed before)
-#   │ ├ XZ                   (installed before)
-#   │ └ zlib                 (installed before)
-#   │   └ XZ                 (installed before)
-#   ├ libxslt
-#   │ ├ libiconv             (installed before)
-#   │ ├ libxml2              (installed before)
-#   │ └ zlib                 (installed before)
-#   ├ readline
-#   │ └ ncurses              (installed before)
-#   └ zlib                   (installed before)
-#     └ XZ                   (installed before)
-
 
 rm -rf lbzip2* gperf* libiconv* expat* gettext* ncurses* xz* zlib* openssl* bzip2* libedit* sqlite* Python* pkg-config* opus*
 
@@ -149,9 +66,9 @@ make install PREFIX=$INSTALLDIR
 cd ..
 
 downloadAndCompile libedit-20170329-3.1 http://thrysoee.dk/editline/libedit-20170329-3.1.tar.gz "--with-ncurses=$INSTALLDIR"
-downloadAndCompile sqlite-autoconf-3190300 http://www.sqlite.org/2017/sqlite-autoconf-3190300.tar.gz "--with-libedit=$INSTALLDIR --with-ncurses=$INSTALLDIR"
+downloadAndCompile sqlite-autoconf-3200100 http://www.sqlite.org/2017/sqlite-autoconf-3200100.tar.gz "--with-libedit=$INSTALLDIR --with-ncurses=$INSTALLDIR"
 cp -r $INSTALLDIR/lib $HOME/lib
-downloadAndCompile Python-3.6.2 https://www.python.org/ftp/python/3.6.2/Python-3.6.2.tgz
+downloadAndCompile Python-3.6.3 https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tgz
 rm -rf $HOME/lib
 
 if [[ "$unamestr" == 'Darwin' ]]; then
