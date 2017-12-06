@@ -35,7 +35,7 @@ downloadAndCompile libiconv-1.15 https://ftp.gnu.org/pub/gnu/libiconv/libiconv-1
 downloadAndCompile expat-2.2.0 http://oe-lite.org/mirror/expat/expat-2.2.0.tar.bz2 "--with-lbzip2=$INSTALLDIR"
 downloadAndCompile ncurses-6.0 https://ftp.gnu.org/gnu/ncurses/ncurses-6.0.tar.gz "--with-shared"
 downloadAndCompile gettext-0.19.8.1 https://ftp.gnu.org/pub/gnu/gettext/gettext-0.19.8.1.tar.gz "--disable-static --with-expat=$INSTALLDIR --with-libiconv=$INSTALLDIR --with-ncurses=$INSTALLDIR"
-downloadAndCompile xz-5.2.3 https://tukaani.org/xz/xz-5.2.3.tar.gz "--with-lbzip2=$INSTALLDIR --with-libiconv=$INSTALLDIR --with-gettext=$INSTALLDIR"
+downloadAndCompile xz-5.2.3 https://fossies.org/linux/misc/xz-5.2.3.tar.gz "--with-lbzip2=$INSTALLDIR --with-libiconv=$INSTALLDIR --with-gettext=$INSTALLDIR"
 downloadAndCompile zlib-1.2.11 http://zlib.net/zlib-1.2.11.tar.gz
 unamestr=$(uname)
 
