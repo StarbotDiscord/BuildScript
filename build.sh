@@ -39,9 +39,9 @@ downloadAndCompile xz-5.2.3 https://tukaani.org/xz/xz-5.2.3.tar.gz "--with-lbzip
 downloadAndCompile zlib-1.2.11 http://zlib.net/zlib-1.2.11.tar.gz
 unamestr=$(uname)
 
-curl -k openssl-1.0.2l https://www.openssl.org/source/openssl-1.0.2l.tar.gz > openssl-1.0.2l.tar.gz
-tar xf openssl-1.0.2l.tar.gz
-cd openssl-1.0.2l
+curl -k openssl-1.0.2m https://www.openssl.org/source/openssl-1.0.2m.tar.gz > openssl-1.0.2m.tar.gz
+tar xf openssl-1.0.2m.tar.gz
+cd openssl-1.0.2m
 if [[ "$unamestr" == 'Darwin' ]]; then
    ./Configure darwin64-x86_64-cc --prefix=$INSTALLDIR 
 elif [[ "$unamestr" == 'Linux' ]]; then
@@ -66,7 +66,7 @@ make install PREFIX=$INSTALLDIR
 cd ..
 
 downloadAndCompile libedit-20170329-3.1 http://thrysoee.dk/editline/libedit-20170329-3.1.tar.gz "--with-ncurses=$INSTALLDIR"
-downloadAndCompile sqlite-autoconf-3200100 http://www.sqlite.org/2017/sqlite-autoconf-3200100.tar.gz "--with-libedit=$INSTALLDIR --with-ncurses=$INSTALLDIR"
+downloadAndCompile sqlite-autoconf-3210000 http://www.sqlite.org/2017/sqlite-autoconf-3210000.tar.gz "--with-libedit=$INSTALLDIR --with-ncurses=$INSTALLDIR"
 cp -r $INSTALLDIR/lib $HOME/lib
 downloadAndCompile Python-3.6.3 https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tgz
 rm -rf $HOME/lib
