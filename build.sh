@@ -15,9 +15,9 @@ function downloadAndCompile {
     curl -L $2 > $1.tar.gz
     tar -xf $1.tar.gz
     cd $1
-    ./configure --prefix=$INSTALLDIR $3 &>> build.log
-    make $MAKEARGS &>> build.log
-    make install &>> build.log
+    ./configure --prefix=$INSTALLDIR $3 >> build.log
+    make $MAKEARGS >> build.log
+    make install >> build.log
     cd ..
 }
 
@@ -44,26 +44,26 @@ curl -k openssl-1.0.2s https://www.openssl.org/source/openssl-1.0.2s.tar.gz > op
 tar xf openssl-1.0.2s.tar.gz
 cd openssl-1.0.2s
 if [[ "$unamestr" == 'Darwin' ]]; then
-   ./Configure darwin64-x86_64-cc --prefix=$INSTALLDIR  &>> build.log
+   ./Configure darwin64-x86_64-cc --prefix=$INSTALLDIR  >> build.log
 elif [[ "$unamestr" == 'Linux' ]]; then
 
 if [[ "$CC" == 'clang' ]]; then
-   ./Configure linux-x86_64-clang --prefix=$INSTALLDIR -fPIC no-gost no-shared no-zlib &>> build.log
+   ./Configure linux-x86_64-clang --prefix=$INSTALLDIR -fPIC no-gost no-shared no-zlib >> build.log
 else
-   ./Configure linux-generic64 --prefix=$INSTALLDIR -fPIC no-gost no-shared no-zlib &>> build.log
+   ./Configure linux-generic64 --prefix=$INSTALLDIR -fPIC no-gost no-shared no-zlib >> build.log
 fi
-   ./config --prefix=$INSTALLDIR -fPIC no-gost no-shared no-zlib &>> build.log
+   ./config --prefix=$INSTALLDIR -fPIC no-gost no-shared no-zlib >> build.log
 fi
-make depend &>> build.log
-make $MAKEARGS &>> build.log
-make install &>> build.log
+make depend >> build.log
+make $MAKEARGS >> build.log
+make install >> build.log
 cd ..
 
 curl https://sourceware.org/pub/bzip2/bzip2-1.0.7.tar.gz > bzip2-1.0.7.tar.gz
 tar xf bzip2-1.0.7.tar.gz
 cd bzip2-1.0.7
-make $MAKEARGS &>> build.log
-make install PREFIX=$INSTALLDIR &>> build.log
+make $MAKEARGS >> build.log
+make install PREFIX=$INSTALLDIR >> build.log
 cd ..
 
 downloadAndCompile libedit-20190324-3.1 http://thrysoee.dk/editline/libedit-20190324-3.1.tar.gz "--with-ncurses=$INSTALLDIR"
@@ -73,7 +73,7 @@ downloadAndCompile Python-3.7.3 https://www.python.org/ftp/python/3.7.3/Python-3
 rm -rf $HOME/lib
 
 if [[ "$unamestr" == 'Darwin' ]]; then
-    ./updatessl.sh &>> build.log
+    ./updatessl.sh >> build.log
 fi
 
-$INSTALLDIR/bin/pip3 install discord.py pluginbase psutil pyparsing pyspeedtest tqdm &>> build.log
+$INSTALLDIR/bin/pip3 install discord.py pluginbase psutil pyparsing pyspeedtest tqdm >> build.log
