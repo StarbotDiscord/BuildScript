@@ -29,7 +29,7 @@ function downloadAndCompile {
 #         __/ |                                     
 #        |___/                                      
 
-downloadAndCompile lbzip2-2.5 https://codeload.github.com/kjn/lbzip2/tar.gz/v2.5
+downloadAndCompile lbzip2-2.5 https://fossies.org/linux/privat/lbzip2-2.5.tar.gz
 downloadAndCompile gperf-3.1 http://ftp.gnu.org/pub/gnu/gperf/gperf-3.1.tar.gz
 downloadAndCompile libiconv-1.16 https://ftp.gnu.org/pub/gnu/libiconv/libiconv-1.16.tar.gz "--with-gperf=$INSTALLDIR"
 downloadAndCompile expat-2.2.0 http://oe-lite.org/mirror/expat/expat-2.2.0.tar.bz2 "--with-lbzip2=$INSTALLDIR"
