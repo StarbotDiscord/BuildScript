@@ -11,7 +11,7 @@ set -e
 # $2 - Project URL
 # $3 - Additional config args
 function downloadAndCompile {
-    curl $2 > $1.tar.gz
+    curl -L $2 > $1.tar.gz
     tar -xf $1.tar.gz
     cd $1
     ./configure --prefix=$INSTALLDIR $3
@@ -20,28 +20,28 @@ function downloadAndCompile {
     cd ..
 }
 
-#  _____       _   _                   ____   _____ 
-# |  __ \     | | | |                 |___ \ | ____|
-# | |__) _   _| |_| |__   ___  _ __     __) || |__  
-# |  ___| | | | __| '_ \ / _ \| '_ \   |__ < |___ \ 
-# | |   | |_| | |_| | | | (_) | | | |  ___) _ ___) |
-# |_|    \__, |\__|_| |_|\___/|_| |_| |____(_|____/ 
+#  _____       _   _
+# |  __ \     | | | |
+# | |__) _   _| |_| |__   ___  _ __
+# |  ___| | | | __| '_ \ / _ \| '_ \
+# | |   | |_| | |_| | | | (_) | | | |
+# |_|    \__, |\__|_| |_|\___/|_| |_|
 #         __/ |                                     
 #        |___/                                      
 
-downloadAndCompile lbzip2-2.5 http://archive.lbzip2.org/lbzip2-2.5.tar.gz
+downloadAndCompile lbzip2-2.5 https://codeload.github.com/kjn/lbzip2/tar.gz/v2.5
 downloadAndCompile gperf-3.1 http://ftp.gnu.org/pub/gnu/gperf/gperf-3.1.tar.gz
-downloadAndCompile libiconv-1.15 https://ftp.gnu.org/pub/gnu/libiconv/libiconv-1.15.tar.gz "--with-gperf=$INSTALLDIR"
+downloadAndCompile libiconv-1.16 https://ftp.gnu.org/pub/gnu/libiconv/libiconv-1.16.tar.gz "--with-gperf=$INSTALLDIR"
 downloadAndCompile expat-2.2.0 http://oe-lite.org/mirror/expat/expat-2.2.0.tar.bz2 "--with-lbzip2=$INSTALLDIR"
-downloadAndCompile ncurses-6.0 https://ftp.gnu.org/gnu/ncurses/ncurses-6.0.tar.gz "--with-shared"
-downloadAndCompile gettext-0.19.8.1 https://ftp.gnu.org/pub/gnu/gettext/gettext-0.19.8.1.tar.gz "--disable-static --with-expat=$INSTALLDIR --with-libiconv=$INSTALLDIR --with-ncurses=$INSTALLDIR"
-downloadAndCompile xz-5.2.3 https://fossies.org/linux/misc/xz-5.2.3.tar.gz "--with-lbzip2=$INSTALLDIR --with-libiconv=$INSTALLDIR --with-gettext=$INSTALLDIR"
+downloadAndCompile ncurses-6.1 https://ftp.gnu.org/gnu/ncurses/ncurses-6.1.tar.gz "--with-shared"
+downloadAndCompile gettext-0.20.1 https://ftp.gnu.org/pub/gnu/gettext/gettext-0.20.1.tar.gz "--disable-static --with-expat=$INSTALLDIR --with-libiconv=$INSTALLDIR --with-ncurses=$INSTALLDIR"
+downloadAndCompile xz-5.2.4 https://fossies.org/linux/misc/xz-5.2.4.tar.gz "--with-lbzip2=$INSTALLDIR --with-libiconv=$INSTALLDIR --with-gettext=$INSTALLDIR"
 downloadAndCompile zlib-1.2.11 http://zlib.net/zlib-1.2.11.tar.gz
 unamestr=$(uname)
 
-curl -k openssl-1.0.2m https://www.openssl.org/source/openssl-1.0.2m.tar.gz > openssl-1.0.2m.tar.gz
-tar xf openssl-1.0.2m.tar.gz
-cd openssl-1.0.2m
+curl -k openssl-1.0.2s https://www.openssl.org/source/openssl-1.0.2s.tar.gz > openssl-1.0.2s.tar.gz
+tar xf openssl-1.0.2s.tar.gz
+cd openssl-1.0.2s
 if [[ "$unamestr" == 'Darwin' ]]; then
    ./Configure darwin64-x86_64-cc --prefix=$INSTALLDIR 
 elif [[ "$unamestr" == 'Linux' ]]; then
@@ -58,17 +58,17 @@ make $MAKEARGS
 make install
 cd ..
 
-curl http://bzip.org/1.0.6/bzip2-1.0.6.tar.gz > bzip2-1.0.6.tar.gz
-tar xf bzip2-1.0.6.tar.gz
-cd bzip2-1.0.6
+curl https://sourceware.org/pub/bzip2/bzip2-1.0.7.tar.gz > bzip2-1.0.7.tar.gz
+tar xf bzip2-1.0.7.tar.gz
+cd bzip2-1.0.7
 make $MAKEARGS
 make install PREFIX=$INSTALLDIR
 cd ..
 
-downloadAndCompile libedit-20170329-3.1 http://thrysoee.dk/editline/libedit-20170329-3.1.tar.gz "--with-ncurses=$INSTALLDIR"
-downloadAndCompile sqlite-autoconf-3210000 http://www.sqlite.org/2017/sqlite-autoconf-3210000.tar.gz "--with-libedit=$INSTALLDIR --with-ncurses=$INSTALLDIR"
+downloadAndCompile libedit-20190324-3.1 http://thrysoee.dk/editline/libedit-20190324-3.1.tar.gz "--with-ncurses=$INSTALLDIR"
+downloadAndCompile sqlite-autoconf-3280000 https://sqlite.org/2019/sqlite-autoconf-3280000.tar.gz "--with-libedit=$INSTALLDIR --with-ncurses=$INSTALLDIR"
 cp -r $INSTALLDIR/lib $HOME/lib
-downloadAndCompile Python-3.6.3 https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tgz
+downloadAndCompile Python-3.7.3 https://www.python.org/ftp/python/3.7.3/Python-3.7.3.tgz
 rm -rf $HOME/lib
 
 if [[ "$unamestr" == 'Darwin' ]]; then
