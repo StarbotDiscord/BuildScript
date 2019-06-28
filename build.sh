@@ -5,10 +5,6 @@ rm -rf lbzip2* gperf* libiconv* expat* gettext* ncurses* xz* zlib* openssl* bzip
 export INSTALLDIR=$HOME/Starbot.framework
 export PATH=$INSTALLDIR/bin:$PATH
 
-if [ "$ci" = "true" ]; then
-    export LOGFILEARGS="&> build.log"
-fi
-
 set -e
 
 # $1 - Project name
@@ -19,9 +15,9 @@ function downloadAndCompile {
     curl -L $2 > $1.tar.gz
     tar -xf $1.tar.gz
     cd $1
-    ./configure --prefix=$INSTALLDIR $3 $LOGFILEARGS
-    make $MAKEARGS $LOGFILEARGS
-    make install $LOGFILEARGS
+    ./configure --prefix=$INSTALLDIR $3 &>> build.log
+    make $MAKEARGS &>> build.log
+    make install &>> build.log
     cd ..
 }
 
