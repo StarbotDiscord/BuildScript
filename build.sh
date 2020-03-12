@@ -33,16 +33,16 @@ function downloadAndCompile {
 downloadAndCompile lbzip2-2.5 https://fossies.org/linux/privat/lbzip2-2.5.tar.gz
 downloadAndCompile gperf-3.1 http://ftp.gnu.org/pub/gnu/gperf/gperf-3.1.tar.gz
 downloadAndCompile libiconv-1.16 https://ftp.gnu.org/pub/gnu/libiconv/libiconv-1.16.tar.gz "--with-gperf=$INSTALLDIR"
-downloadAndCompile expat-2.2.0 http://oe-lite.org/mirror/expat/expat-2.2.0.tar.bz2 "--with-lbzip2=$INSTALLDIR"
-downloadAndCompile ncurses-6.1 https://ftp.gnu.org/gnu/ncurses/ncurses-6.1.tar.gz "--with-shared"
+downloadAndCompile expat-2.2.9 https://github.com/libexpat/libexpat/releases/download/R_2_2_9/expat-2.2.9.tar.bz2 "--with-lbzip2=$INSTALLDIR"
+downloadAndCompile ncurses-6.2 https://ftp.gnu.org/gnu/ncurses/ncurses-6.2.tar.gz "--with-shared"
 downloadAndCompile gettext-0.20.1 https://ftp.gnu.org/pub/gnu/gettext/gettext-0.20.1.tar.gz "--disable-static --with-expat=$INSTALLDIR --with-libiconv=$INSTALLDIR --with-ncurses=$INSTALLDIR"
 downloadAndCompile xz-5.2.4 https://fossies.org/linux/misc/xz-5.2.4.tar.gz "--with-lbzip2=$INSTALLDIR --with-libiconv=$INSTALLDIR --with-gettext=$INSTALLDIR"
 downloadAndCompile zlib-1.2.11 http://zlib.net/zlib-1.2.11.tar.gz
 unamestr=$(uname)
 
-curl -k openssl-1.0.2s https://www.openssl.org/source/openssl-1.0.2s.tar.gz > openssl-1.0.2s.tar.gz
-tar xf openssl-1.0.2s.tar.gz
-cd openssl-1.0.2s
+curl -k openssl-1.0.2s https://www.openssl.org/source/openssl-1.1.1d.tar.gz > openssl-1.1.1d.tar.gz
+tar xf openssl-1.1.1d.tar.gz
+cd openssl-1.1.1d
 if [[ "$unamestr" == 'Darwin' ]]; then
    ./Configure darwin64-x86_64-cc --prefix=$INSTALLDIR  >> build.log 2>&1
 elif [[ "$unamestr" == 'Linux' ]]; then
@@ -59,17 +59,17 @@ make $MAKEARGS >> build.log 2>&1
 make install >> build.log 2>&1
 cd ..
 
-curl https://sourceware.org/pub/bzip2/bzip2-1.0.7.tar.gz > bzip2-1.0.7.tar.gz
-tar xf bzip2-1.0.7.tar.gz
-cd bzip2-1.0.7
+curl https://sourceware.org/pub/bzip2/bzip2-1.0.8.tar.gz > bzip2-1.0.8.tar.gz
+tar xf bzip2-1.0.8.tar.gz
+cd bzip2-1.0.8
 make $MAKEARGS >> build.log 2>&1
 make install PREFIX=$INSTALLDIR >> build.log 2>&1
 cd ..
 
-downloadAndCompile libedit-20190324-3.1 http://thrysoee.dk/editline/libedit-20190324-3.1.tar.gz "--with-ncurses=$INSTALLDIR"
-downloadAndCompile sqlite-autoconf-3280000 https://sqlite.org/2019/sqlite-autoconf-3280000.tar.gz "--with-libedit=$INSTALLDIR --with-ncurses=$INSTALLDIR"
+downloadAndCompile libedit-20191231-3.1 http://thrysoee.dk/editline/libedit-20191231-3.1.tar.gz "--with-ncurses=$INSTALLDIR"
+downloadAndCompile sqlite-autoconf-3310100 https://www.sqlite.org/2020/sqlite-autoconf-3310100.tar.gz "--with-libedit=$INSTALLDIR --with-ncurses=$INSTALLDIR"
 cp -r $INSTALLDIR/lib $HOME/lib
-downloadAndCompile Python-3.7.3 https://www.python.org/ftp/python/3.7.3/Python-3.7.3.tgz
+downloadAndCompile Python-3.8.2 https://www.python.org/ftp/python/3.8.2/Python-3.8.2.tgz
 rm -rf $HOME/lib
 
 if [[ "$unamestr" == 'Darwin' ]]; then
